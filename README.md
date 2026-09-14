@@ -5,6 +5,9 @@
 - **NRP:** 5025251199
 - **Kelas:** Pemrograman Web A
 
+## Deskripsi
+Web Page To-Do List yang kita namakan Toolis (ToDo List), front-end web sederhana yang dikembangkan menggunakan pure HTML dan CSS. Web ini dirancang untuk memudahkan manajemen tugas harian, misalnya perkuliahan dengan tampilan UI yang terbagi menjadi panel sidebar daftar tugas, detail tugas yang sedang berjalan, serta form penambahan tugas baru. Fokus utama dari webpage ini adalah penerapan struktur semantic HTML dan layouting responsif berbasis Flexbox.
+
 ## Deployed Link
 https://if-pemrograman-web-a.github.io/5025251199_ToDo-App/
 
