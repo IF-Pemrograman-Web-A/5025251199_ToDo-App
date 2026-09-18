@@ -25,4 +25,5 @@ https://if-pemrograman-web-a.github.io/5025251199_ToDo-App/
 <img width="959" height="473" alt="image" src="https://github.com/user-attachments/assets/3830860b-5266-4bdb-b67f-b56594341c0c" />
 
 ## Mobile Preview
-<img width="217" height="420" alt="image" src="https://github.com/user-attachments/assets/f6bba113-4c3c-47ca-a4b0-c1ecea6a6b1f" />
+<img width="217" height="420" alt="image" src="https://github.com/user-attachments/assets/f6bba113-4c3c-47ca-a4b0-c1ecea6a6b1f" /> <img width="203" height="433" alt="image" src="https://github.com/user-attachments/assets/3521fdb4-bd35-463b-83df-3111aeac6c6b" />
+
