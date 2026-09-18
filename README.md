@@ -18,9 +18,10 @@ Web Page To-Do List yang dinamakan **Toolis (ToDo List)**, kini diperbarui denga
 https://if-pemrograman-web-a.github.io/5025251199_ToDo-App/
 
 ## Desktop Preview
-# Light Mode
+### Light Mode
 <img width="956" height="473" alt="image" src="https://github.com/user-attachments/assets/112cf3c1-b6ee-48cf-b0a8-3ccfee86f85f" />
-# Dark Mode
+
+### Dark Mode
 <img width="959" height="473" alt="image" src="https://github.com/user-attachments/assets/3830860b-5266-4bdb-b67f-b56594341c0c" />
 
 ## Mobile Preview
