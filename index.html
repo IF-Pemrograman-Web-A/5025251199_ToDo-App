@@ -10,42 +10,15 @@
     <div class="container">
         <header class="app-header">
             <h1>TOOLIS</h1>
+            <button id="theme-toggle" class="btn-theme">🌙 Dark Mode</button>
         </header>
 
         <div class="main-layout">
             <aside class="sidebar-section">
                 <div class="section-card">
                     <h2 class="section-title">Task List</h2>
-                    <ul class="task-list">
-                    <li>
-                        <label class="task-item">
-                        <input type="checkbox" checked>
-                        <span class="custom-checkbox"></span>
-                        <span class="task-text">Menyelesaikan 4 css games</span>
-                    </label>
-                    </li>
-                    <li>
-                        <label class="task-item">
-                            <input type="checkbox">
-                            <span class="custom-checkbox"></span>
-                            <span class="task-text">Membuat Webpage To-Do List</span>
-                            </label>
-                    </li>
-                    <li>
-                            <label class="task-item">
-                            <input type="checkbox">
-                            <span class="custom-checkbox"></span>
-                            <span class="task-text">Mengerjakan Pre-Praktikum Jarkom</span>
-                            </label>
-                    </li>
-                        <li>
-                            <label class="task-item">
-                            <input type="checkbox">
-                            <span class="custom-checkbox"></span>
-                            <span class="task-text">LBE RPL</span>
-                            </label>
-                        </li>
-                    </ul>
+                    <!-- Kriteria 1: Ul diisi via JavaScript DOM -->
+                    <ul id="task-list" class="task-list"></ul>
                 </div>
             </aside>
 
@@ -53,32 +26,33 @@
                 <section class="section-card task-detail">
                     <h2 class="section-title">Task Detail</h2>
                     <div class="detail-container">
-                        <p><strong>Title:</strong> Membuat Webpage To-Do List</p>
-                        <p><strong>Status:</strong> <span class="status-badge on-progress">On Progress</span></p>
-                        <p><strong>Deadline:</strong> 14 September 2026</p>
+                        <p><strong>Title:</strong> <span id="detail-title">-</span></p>
+                        <p><strong>Status:</strong> <span id="detail-status" class="status-badge">-</span></p>
+                        <p><strong>Deadline:</strong> <span id="detail-deadline">-</span></p>
                         <div class="description-group">
-                        <strong>Description:</strong>
-                        <p class="description-text">Belajar cara membuat Webpage To-Do List.</p>
-                    </div>
+                            <strong>Description:</strong>
+                            <p id="detail-desc" class="description-text">-</p>
+                        </div>
                     </div>
                 </section>
 
                 <section class="section-card add-task">
-                    <h2 class="section-title">Add Task</h2>
-                    <form action="#" method="POST">
+                    <h2 id="form-title" class="section-title">Add Task</h2>
+                    <form id="task-form">
+                        <input type="hidden" id="task-id">
                         <div class="form-group">
                             <label for="task-title">Title</label>
-                            <input type="text" id="task-title" name="judul" placeholder="Enter Title">
+                            <input type="text" id="task-title" placeholder="Enter Title" required>
                         </div>
                         <div class="form-group">
                             <label for="task-desc">Description</label>
-                            <textarea id="task-desc" name="deskripsi" placeholder="Enter Description" rows="2"></textarea>
+                            <textarea id="task-desc" placeholder="Enter Description" rows="2"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="task-deadline">Deadline</label>
-                            <input type="date" id="task-deadline" name="deadline">
+                            <input type="date" id="task-deadline">
                         </div>
-                        <button type="submit" class="btn-save">Save</button>
+                        <button type="submit" id="btn-submit" class="btn-save">Save</button>
                     </form>
                 </section>
             </main>
@@ -88,5 +62,7 @@
             <p>𖦹 Web Programming - Muhammad Aqsan</p>
         </footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
