@@ -1,4 +1,4 @@
-# Todo App - The Style Warrior
+# Todo App - The Lost Cavern
 
 ## Identitas
 - **Nama:** Muhammad Aqsan
@@ -6,13 +6,25 @@
 - **Kelas:** Pemrograman Web A
 
 ## Deskripsi
-Web Page To-Do List yang kita namakan Toolis (ToDo List), front-end web sederhana yang dikembangkan menggunakan pure HTML dan CSS. Web ini dirancang untuk memudahkan manajemen tugas harian, misalnya perkuliahan dengan tampilan UI yang terbagi menjadi panel sidebar daftar tugas, detail tugas yang sedang berjalan, serta form penambahan tugas baru. Fokus utama dari webpage ini adalah penerapan struktur semantic HTML dan layouting responsif berbasis Flexbox.
+Toolis (ToDo List) adalah aplikasi manajemen tugas harian berbasis Progressive Web App (PWA) yang dibangun menggunakan Native HTML5, CSS3, dan Vanilla JavaScript. Web ini dirancang dengan struktur *semantic HTML* dan *responsive layouting* (Flexbox & Grid), serta dilengkapi dengan kemampuan offline, penyimpanan lokal persisten, dan integrasi fitur media capture.
+
+## Fitur Unggulan [E03]
+1. **Web Storage:**
+   - **IndexedDB:** Menyimpan data tugas (todo list), lampiran gambar, dan jadwal pengingat secara permanen di database lokal browser.
+   - **localStorage:** Menyimpan preferensi tema (*Light/Dark Mode*) pengguna agar tetap bertahan saat halaman dimuat ulang.
+2. **Media Capture API:**
+   - Fitur unggah gambar/foto lampiran todo melalui *file chooser* atau langsung menggunakan kamera perangkat (*live camera stream* via `navigator.mediaDevices.getUserMedia`).
+3. **Service Worker & Notification API:**
+   - **Service Worker (`sw.js`):** Mendukung pengalaman *offline-first* dengan melakukan *caching* aset statis web.
+   - **Web Notifications:** Pengingat otomatis (*reminder notification*) yang terintegrasi dengan field `datetime-local` pada form tugas.
+4. **Accessibility (a11y) & Best Practices:**
+   - Penerapan atribut ARIA (`aria-label`), *semantic landmark*, *keyboard navigation support*, dan standar kontras warna ramah pembaca layar (*screen reader*).
 
 ## Deployed Link
-https://if-pemrograman-web-a.github.io/5025251199_ToDo-App/
+https://huspy8108.github.io/PWEB-E03/
 
 ## Desktop Preview
-<img width="959" height="473" alt="Screenshot 2026-09-14 181414" src="https://github.com/user-attachments/assets/a19192c4-4152-4f79-b308-7f1bc053b0be" />
+<img width="959" height="509" alt="Screenshot 2026-10-05 172459" src="https://github.com/user-attachments/assets/247d0fd9-e27b-4f09-9d68-197aacc999c1" />
 
 ## Mobile Preview
-<img width="214" height="392" alt="Screenshot 2026-09-14 182429" src="https://github.com/user-attachments/assets/b5b27cae-c151-4373-9c14-89938d8c5518" />
+<img width="194" height="380" alt="Screenshot 2026-10-05 174322" src="https://github.com/user-attachments/assets/bb57ca5d-f810-4fe2-a35f-b7491a1da269" />
