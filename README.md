@@ -24,7 +24,7 @@ Toolis (ToDo List) adalah aplikasi manajemen tugas harian berbasis Progressive W
 https://huspy8108.github.io/PWEB-E03/
 
 ## Desktop Preview
-<img width="959" height="509" alt="Screenshot 2026-10-05 172459" src="https://github.com/user-attachments/assets/247d0fd9-e27b-4f09-9d68-197aacc999c1" />
+<img width="959" height="505" alt="Screenshot 2026-10-05 174633" src="https://github.com/user-attachments/assets/f2e7f8c9-9b22-4347-b472-af23dbecd267" />
 
 ## Mobile Preview
 <img width="194" height="380" alt="Screenshot 2026-10-05 174322" src="https://github.com/user-attachments/assets/bb57ca5d-f810-4fe2-a35f-b7491a1da269" />
