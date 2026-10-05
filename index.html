@@ -10,75 +10,89 @@
     <div class="container">
         <header class="app-header">
             <h1>TOOLIS</h1>
+            <button id="theme-toggle" class="btn-theme" aria-label="Ganti Tema Tampilan">🌙 Dark Mode</button>
         </header>
 
         <div class="main-layout">
-            <aside class="sidebar-section">
+            <aside class="sidebar-section" aria-label="Daftar Tugas">
                 <div class="section-card">
                     <h2 class="section-title">Task List</h2>
-                    <ul class="task-list">
-                    <li>
-                        <label class="task-item">
-                        <input type="checkbox" checked>
-                        <span class="custom-checkbox"></span>
-                        <span class="task-text">Menyelesaikan 4 css games</span>
-                    </label>
-                    </li>
-                    <li>
-                        <label class="task-item">
-                            <input type="checkbox">
-                            <span class="custom-checkbox"></span>
-                            <span class="task-text">Membuat Webpage To-Do List</span>
-                            </label>
-                    </li>
-                    <li>
-                            <label class="task-item">
-                            <input type="checkbox">
-                            <span class="custom-checkbox"></span>
-                            <span class="task-text">Mengerjakan Pre-Praktikum Jarkom</span>
-                            </label>
-                    </li>
-                        <li>
-                            <label class="task-item">
-                            <input type="checkbox">
-                            <span class="custom-checkbox"></span>
-                            <span class="task-text">LBE RPL</span>
-                            </label>
-                        </li>
-                    </ul>
+                    <ul id="task-list" class="task-list"></ul>
                 </div>
             </aside>
 
             <main class="content-section">
-                <section class="section-card task-detail">
+                <section class="section-card task-detail" aria-label="Detail Tugas">
                     <h2 class="section-title">Task Detail</h2>
                     <div class="detail-container">
-                        <p><strong>Title:</strong> Membuat Webpage To-Do List</p>
-                        <p><strong>Status:</strong> <span class="status-badge on-progress">On Progress</span></p>
-                        <p><strong>Deadline:</strong> 14 September 2026</p>
+                        <p><strong>Title:</strong> <span id="detail-title">-</span></p>
+                        <p><strong>Status:</strong> <span id="detail-status" class="status-badge">-</span></p>
+                        <p><strong>Deadline:</strong> <span id="detail-deadline">-</span></p>
                         <div class="description-group">
-                        <strong>Description:</strong>
-                        <p class="description-text">Belajar cara membuat Webpage To-Do List.</p>
-                    </div>
+                            <strong>Description:</strong>
+                            <p id="detail-desc" class="description-text">-</p>
+                        </div>
+                        
+                        <div class="description-group" style="margin-top: 12px;">
+                            <strong>Image:</strong>
+                            <div style="margin-top: 6px;">
+                                <img id="detail-image" src="" alt="Todo Image" style="max-width: 100%; max-height: 200px; border-radius: 8px; display: none;" />
+                                <p id="no-image-text" style="color: #888; font-size: 0.9rem;">No Image Available</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
-                <section class="section-card add-task">
-                    <h2 class="section-title">Add Task</h2>
-                    <form action="#" method="POST">
+                <section class="section-card add-task" aria-label="Form Tambah Tugas">
+                    <h2 id="form-title" class="section-title">Add Task</h2>
+                    <form id="task-form">
+                        <input type="hidden" id="task-id">
+                        
                         <div class="form-group">
                             <label for="task-title">Title</label>
-                            <input type="text" id="task-title" name="judul" placeholder="Enter Title">
+                            <input type="text" id="task-title" placeholder="Enter Title" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="task-desc">Description</label>
-                            <textarea id="task-desc" name="deskripsi" placeholder="Enter Description" rows="2"></textarea>
+                            <textarea id="task-desc" placeholder="Enter Description" rows="2"></textarea>
                         </div>
+                        
                         <div class="form-group">
                             <label for="task-deadline">Deadline</label>
-                            <input type="date" id="task-deadline" name="deadline">
+                            <input type="date" id="task-deadline">
                         </div>
-                        <button type="submit" class="btn-save">Save</button>
+
+                        <div class="form-group">
+                            <label>To Do Image (Optional)</label>
+                            
+                            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                                <input type="file" id="task-image" accept="image/*" capture="environment" style="display: none;">
+                                <button type="button" id="btn-upload-file" class="btn-act">📁 Choose File</button>
+                                <button type="button" id="btn-start-camera" class="btn-act">📷 Open Camera</button>
+                            </div>
+
+                            <div id="camera-container" style="display: none; margin-bottom: 8px; text-align: center; background: #000; padding: 8px; border-radius: 8px;">
+                                <video id="webcam-video" autoplay playsinline style="width: 100%; max-height: 200px; border-radius: 6px;"></video>
+                                <div style="margin-top: 8px; display: flex; gap: 8px; justify-content: center;">
+                                    <button type="button" id="btn-capture" class="btn-act" style="background: #10b981; color: white;">📸 Take Photo</button>
+                                    <button type="button" id="btn-stop-camera" class="btn-act" style="background: #ef4444; color: white;">✕ Close</button>
+                                </div>
+                                <canvas id="webcam-canvas" style="display: none;"></canvas>
+                            </div>
+
+                            <div id="image-preview-container" style="margin-top: 8px; display: none;">
+                                <p style="font-size: 0.8rem; color: #888; margin-bottom: 4px;">Photo Preview:</p>
+                                <img id="image-preview" src="" alt="Preview Foto Todo" style="max-width: 120px; border-radius: 6px;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-notify-time">Reminder Notification</label>
+                            <input type="datetime-local" id="task-notify-time">
+                        </div>
+
+                        <button type="submit" id="btn-submit" class="btn-save">Save</button>
                     </form>
                 </section>
             </main>
@@ -88,5 +102,7 @@
             <p>𖦹 Web Programming - Muhammad Aqsan</p>
         </footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
