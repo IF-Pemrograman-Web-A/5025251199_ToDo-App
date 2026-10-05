@@ -285,6 +285,31 @@ body.dark-mode textarea {
     color: #fff;
 }
 
+.btn-act {
+    background-color: #2563eb;
+    color: #ffffff !important;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-act:hover {
+    background-color: #1d4ed8;
+}
+
+body.dark-mode .btn-act {
+    background-color: #3b82f6;
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-act:hover {
+    background-color: #2563eb;
+}
+
 @media (max-width: 768px) {
     .main-layout {
         flex-direction: column;
