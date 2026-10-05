@@ -8,7 +8,7 @@
 ## Deskripsi
 Toolis (ToDo List) adalah aplikasi manajemen tugas harian berbasis Progressive Web App (PWA) yang dibangun menggunakan Native HTML5, CSS3, dan Vanilla JavaScript. Web ini dirancang dengan struktur *semantic HTML* dan *responsive layouting* (Flexbox & Grid), serta dilengkapi dengan kemampuan offline, penyimpanan lokal persisten, dan integrasi fitur media capture.
 
-## Fitur Unggulan [E03]
+## Fitur Tambahan [E03]
 1. **Web Storage:**
    - **IndexedDB:** Menyimpan data tugas (todo list), lampiran gambar, dan jadwal pengingat secara permanen di database lokal browser.
    - **localStorage:** Menyimpan preferensi tema (*Light/Dark Mode*) pengguna agar tetap bertahan saat halaman dimuat ulang.
