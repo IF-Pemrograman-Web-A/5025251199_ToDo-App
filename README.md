@@ -29,5 +29,6 @@ Toolis (ToDo List) adalah aplikasi manajemen tugas harian dan organisasi berbasi
 ├── style.css       # File penataan gaya (CSS)
 ├── script.js       # Handler interaksi client-side & kamera
 └── uploads/        # Folder tempat penyimpanan fisik berkas gambar
-
+```
 ## Tampilan terbaru
+<img width="959" height="508" alt="Screenshot 2026-10-19 191608" src="https://github.com/user-attachments/assets/1178301b-6ab8-4699-bfd3-08bb3a03ec65" />
