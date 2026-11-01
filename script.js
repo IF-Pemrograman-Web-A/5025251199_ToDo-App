@@ -95,6 +95,12 @@ function initCameraEvents() {
     }
 }
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js');
+    });
+}
+
 function stopCameraStream() {
     const cameraContainer = document.getElementById("camera-container");
     if (mediaStream) {
