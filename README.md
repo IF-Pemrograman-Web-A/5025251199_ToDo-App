@@ -37,21 +37,21 @@ Toolis (ToDo List) adalah aplikasi manajemen tugas harian dan organisasi berbasi
 ├── icon-192.png      # Ikon PWA resolusi 192x192 px
 ├── icon-512.png      # Ikon PWA resolusi 512x512 px
 └── uploads/          # Folder tempat penyimpanan fisik berkas gambar
-
+```
 ## Bukti Pengujian (DevTools & Offline Mode)
 
 ### 1. Web App Manifest
 *Tampilan konfigurasi Manifest yang terdeteksi di Chrome DevTools:*
-![Web App Manifest](readme%20image/Screenshot%202026-11-01%20125626.png)
+<img width="959" height="500" alt="Screenshot 2026-11-01 125626" src="https://github.com/user-attachments/assets/7ca08b37-d29b-4104-ad1c-a087f4829507" />
 
 ### 2. Service Worker Status
 *Status Service Worker yang sudah terdaftar, terinstal, dan aktif (`Activated and is running`):*
-![Service Worker Status](readme%20image/Screenshot%202026-11-01%20132650.png)
+<img width="959" height="509" alt="Screenshot 2026-11-01 132650" src="https://github.com/user-attachments/assets/4a34bf69-9ae1-461b-b050-b8eb81b51741" />
 
 ### 3. Cache Storage (App Shell Cached)
 *Aset-aset utama aplikasi yang tersimpan di Cache Storage (`toolis-pwa-v1`):*
-![Cache Storage](readme%20image/Screenshot%202026-11-01%20133427.png)
+<img width="959" height="507" alt="Screenshot 2026-11-01 133427" src="https://github.com/user-attachments/assets/7ef7773f-d43b-4da9-8700-0908603a78ed" />
 
 ### 4. Pengujian Mode Offline (Network Test)
 *Simulasi mode offline menggunakan tab Network DevTools saat memuat halaman:*
-![Offline Mode Test](readme%20image/Screenshot%202026-11-01%20133935.png)
+<img width="959" height="503" alt="Screenshot 2026-11-01 133935" src="https://github.com/user-attachments/assets/916785d7-1dee-42af-8f50-5187ea9070c6" />
