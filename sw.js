@@ -1,4 +1,4 @@
-const CACHE_NAME = 'toolis-pwa-v1';
+const CACHE_NAME = 'toolis-pwa-v2';
 const ASSETS_TO_CACHE = [
     './',
     './index.php',
@@ -9,38 +9,40 @@ const ASSETS_TO_CACHE = [
 ];
 
 self.addEventListener('install', (event) => {
-        event.waitUntil(
+    event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
-    return cache.addAll(ASSETS_TO_CACHE);
-    })
-);
-self.skipWaiting();
+            return cache.addAll(ASSETS_TO_CACHE);
+        })
+    );
+    self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-        event.waitUntil(
+    event.waitUntil(
         caches.keys().then((keys) => {
-    return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+            return Promise.all(
+                keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+            );
+        })
     );
-    })
-);
-self.clients.claim();
+    self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
-if (event.request.method !== 'GET') return;
-
-event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-    if (cachedResponse) {
-        return cachedResponse;
+    if (event.request.url.includes('/api/') || event.request.method !== 'GET') {
+        return;
     }
-    return fetch(event.request).catch(() => {
-        if (event.request.headers.get('accept')?.includes('text/html')) {
-    return caches.match('./offline.html');
-        }
-    });
-    })
-);
+
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+            return fetch(event.request).catch(() => {
+                if (event.request.headers.get('accept')?.includes('text/html')) {
+                    return caches.match('./offline.html');
+                }
+            });
+        })
+    );
 });

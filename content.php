@@ -1,92 +1,28 @@
-<?php
-$stmt = $conn->prepare("SELECT * FROM todos WHERE type = ? ORDER BY id DESC");
-$stmt->bind_param("s", $page_type);
-$stmt->execute();
-$result = $stmt->get_result();
-
-$todos = [];
-while ($row = $result->fetch_assoc()) {
-    $todos[] = $row;
-}
-
-$selected_todo = null;
-if (!empty($todos)) {
-    if (isset($_GET['detail_id'])) {
-        foreach ($todos as $t) {
-            if ($t['id'] == $_GET['detail_id']) {
-                $selected_todo = $t;
-                break;
-            }
-        }
-    }
-    if (!$selected_todo) {
-        $selected_todo = $todos[0];
-    }
-}
-?>
-
 <main class="content-section">
     <section class="section-card" aria-label="Daftar Tugas">
         <h2 class="section-title"><?php echo ucfirst($page_type); ?> Task List</h2>
         <ul id="task-list" class="task-list">
-            <?php if (empty($todos)): ?>
-                <p style="color: #888; font-size: 0.9rem;">Belum ada tugas di kategori ini.</p>
-            <?php else: ?>
-                <?php foreach ($todos as $todo): ?>
-                    <li class="task-item-container" data-id="<?php echo $todo['id']; ?>">
-                        <div class="task-item" style="display: flex; align-items: center; gap: 10px; flex: 1;">
-                            <a href="action.php?action=toggle&id=<?php echo $todo['id']; ?>&type=<?php echo $page_type; ?>" 
-                               style="display: inline-flex; align-items: center; text-decoration: none;">
-                                <label style="cursor: pointer; display: inline-flex; align-items: center;">
-                                    <input type="checkbox" <?php echo $todo['status'] === 'completed' ? 'checked' : ''; ?> 
-                                           onclick="window.location.href=this.closest('a').href;">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </a>
-                            <a href="<?php echo $page_type === 'shared' ? 'shared.php' : 'index.php'; ?>?detail_id=<?php echo $todo['id']; ?>" 
-                               style="text-decoration: none; color: inherit; flex: 1;">
-                                <span class="task-text <?php echo $todo['status'] === 'completed' ? 'completed-text' : ''; ?>" 
-                                      style="cursor: pointer; display: block; user-select: none;">
-                                    <?php echo htmlspecialchars($todo['title']); ?>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="task-actions">
-                            <button type="button" class="btn-act btn-edit" onclick="editTask(<?php echo htmlspecialchars(json_encode($todo), ENT_QUOTES, 'UTF-8'); ?>)">Edit</button>
-                            <a href="action.php?action=delete&id=<?php echo $todo['id']; ?>&type=<?php echo $page_type; ?>" 
-                               class="btn-act btn-delete" 
-                               onclick="return confirm('Apakah Anda yakin ingin menghapus tugas ini?')"
-                               style="text-decoration: none; display: inline-block; line-height: normal;">Delete</a>
-                        </div>
-                    </li>
-                <?php endforeach; ?>
-            <?php endif; ?>
+            <p style="color: #888; font-size: 0.9rem;">Loading tasks...</p>
         </ul>
     </section>
 
     <section class="section-card task-detail" aria-label="Detail Tugas">
         <h2 class="section-title">Task Detail</h2>
         <div class="detail-container">
-            <p><strong>Title:</strong> <span id="detail-title"><?php echo htmlspecialchars($selected_todo['title'] ?? '-'); ?></span></p>
+            <p><strong>Title:</strong> <span id="detail-title">-</span></p>
             <p><strong>Status:</strong> 
-                <span id="detail-status" class="status-badge <?php echo ($selected_todo && $selected_todo['status'] === 'completed') ? 'status-completed' : 'on-progress'; ?>">
-                    <?php echo $selected_todo ? ($selected_todo['status'] === 'completed' ? 'Completed' : 'On Progress') : '-'; ?>
-                </span>
+                <span id="detail-status" class="status-badge on-progress">-</span>
             </p>
-            <p><strong>Deadline:</strong> <span id="detail-deadline"><?php echo htmlspecialchars($selected_todo['deadline'] ?? '-'); ?></span></p>
+            <p><strong>Deadline:</strong> <span id="detail-deadline">-</span></p>
             <div class="description-group">
                 <strong>Description:</strong>
-                <p id="detail-desc" class="description-text"><?php echo htmlspecialchars($selected_todo['description'] ?? '-'); ?></p>
+                <p id="detail-desc" class="description-text">-</p>
             </div>
             
             <div class="description-group" style="margin-top: 12px;">
                 <strong>Image Attachment:</strong>
-                <div style="margin-top: 6px;">
-                    <?php if (!empty($selected_todo['image_path'])): ?>
-                        <img id="detail-image" src="<?php echo htmlspecialchars($selected_todo['image_path']); ?>" alt="Todo Image" style="max-width: 100%; max-height: 200px; border-radius: 8px;" />
-                    <?php else: ?>
-                        <p id="no-image-text" style="color: #888; font-size: 0.9rem;">No Image Available</p>
-                    <?php endif; ?>
+                <div id="detail-image-wrapper" style="margin-top: 6px;">
+                    <p id="no-image-text" style="color: #888; font-size: 0.9rem;">No Image Available</p>
                 </div>
             </div>
         </div>
@@ -94,9 +30,9 @@ if (!empty($todos)) {
 
     <section class="section-card add-task" aria-label="Form Tambah Tugas">
         <h2 id="form-title" class="section-title">Add <?php echo ucfirst($page_type); ?> Task</h2>
-        <form id="task-form" action="action.php?action=save" method="POST" enctype="multipart/form-data">
+        <form id="task-form">
             <input type="hidden" name="id" id="task-id">
-            <input type="hidden" name="type" value="<?php echo $page_type; ?>">
+            <input type="hidden" name="type" id="task-type" value="<?php echo $page_type; ?>">
             <input type="hidden" name="existing_image" id="existing-image">
             <input type="hidden" name="camera_base64" id="camera-base64">
 
