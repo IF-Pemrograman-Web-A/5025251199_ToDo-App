@@ -42,5 +42,4 @@ Toolis (ToDo List) adalah aplikasi manajemen tugas harian dan organisasi berbasi
 ```
 
 ## Bukti Pengujian RESTful API & HTTP Status Codes
-*Pengujian seluruh HTTP Method (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`) beserta penanganan response code sukses (`200`, `201`) dan error (`400`, `404`) melalui Chrome DevTools:*
-<img width="959" height="509" alt="Screenshot 2026-11-12 150002" src="https://github.com/user-attachments/assets/a008928d-7b4b-42a7-bee5-b625d3cd990b" /><br><br><img width="959" height="505" alt="Screenshot 2026-11-12 203611" src="https://github.com/user-attachments/assets/2c913ed9-f39e-4335-b9e9-f9fc4d39c79d" />
+*Pengujian seluruh HTTP Method (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`) beserta penanganan response code sukses (`200`, `201`) dan error (`400`, `404`) melalui Chrome DevTools:*<br><br><img width="959" height="509" alt="Screenshot 2026-11-12 150002" src="https://github.com/user-attachments/assets/a008928d-7b4b-42a7-bee5-b625d3cd990b" /><br><br><img width="959" height="505" alt="Screenshot 2026-11-12 203611" src="https://github.com/user-attachments/assets/2c913ed9-f39e-4335-b9e9-f9fc4d39c79d" />
