@@ -32,7 +32,7 @@ Toolis (ToDo List) adalah aplikasi manajemen tugas harian dan organisasi berbasi
 ├── shared.php        # Halaman tugas kelompok (Shared Tasks)
 ├── footer.php        # Komponen footer web
 ├── style.css         # File penataan gaya (CSS)
-├── script.js         # # Handler asynchronous fetch() REST API, kamera, & registrasi PWA
+├── script.js         # Handler asynchronous fetch() REST API, kamera, & registrasi PWA
 ├── manifest.json     # Konfigurasi PWA Manifest & App Icons
 ├── sw.js             # Service Worker script untuk pengolahan Cache & Offline mode
 ├── offline.html      # Tampilan fallback saat jaringan offline
